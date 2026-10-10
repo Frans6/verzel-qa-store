@@ -1,0 +1,72 @@
+1) 5x Jaqueta + cupom: {
+  sub: 'R$ 1.149,50',
+  desc: '- R$ 114,95',
+  frete: 'Grátis',
+  total: 'R$ 1.034,55'
+}
+2) resumo no checkout: {
+  sub: 'R$ 1.149,50',
+  desc: '- R$ 114,95',
+  frete: 'Grátis',
+  total: 'R$ 1.034,55'
+}
+   resumo na confirmação: {
+  sub: 'R$ 1.149,50',
+  desc: '- R$ 114,95',
+  frete: 'Grátis',
+  total: 'R$ 1.034,55'
+} | iguais: true
+   rótulo do desconto na confirmação: Desconto (BEMVINDO10)
+3) voltar após confirmar -> /carrinho | h1: Seu carrinho está vazio
+   voltar de novo -> /carrinho
+4) após F5: {
+  sub: 'R$ 100,00',
+  desc: '- R$ 10,00',
+  frete: 'R$ 19,90',
+  total: 'R$ 109,90'
+} | contador: 1
+5) Enter aplica cupom: true
+6) POSTs /api/pedidos com duplo clique: 1 -> /pedido-confirmado
+7) chamadas a /calcular com duplo clique em Aplicar: 3 | cupom aplicado: true
+8) 219,80 + cupom: {
+  sub: 'R$ 219,80',
+  desc: '- R$ 21,98',
+  frete: 'Grátis',
+  total: 'R$ 197,82'
+}
+   remover Meias (189,90 + cupom): {
+  sub: 'R$ 189,90',
+  desc: '- R$ 18,99',
+  frete: 'R$ 19,90',
+  total: 'R$ 190,81'
+}
+9) sessionStorage com 9 unidades -> UI mostra: 9 {
+  sub: 'R$ 449,10',
+  desc: 'R$ 0,00',
+  frete: 'Grátis',
+  total: 'R$ 449,10'
+} | aviso de limite: 1
+10) JSON corrompido no storage -> Seu carrinho está vazio
+    produto inexistente no storage -> h1: Carrinho | contador: 1 | mensagem erro: [ 'Produto P999 não encontrado.' ]
+    cupom EXPIRADO salvo no storage: {
+  sub: 'R$ 100,00',
+  desc: 'R$ 0,00',
+  frete: 'R$ 19,90',
+  total: 'R$ 119,90'
+} | texto cupom: Cupom VERAO2026 aplicado.Remover cupom
+12) 320px /: excesso horizontal = 0px
+12) 320px /carrinho: excesso horizontal = 0px
+12) 320px /checkout: excesso horizontal = 0px
+12) 320px /documentacao: excesso horizontal = 0px
+12) 768px /: excesso horizontal = 0px
+12) 768px /carrinho: excesso horizontal = 0px
+12) 768px /checkout: excesso horizontal = 0px
+12) 768px /documentacao: excesso horizontal = 0px
+13) ordem de Tab: ["Leia a documentação antes de começa","Verzel Store, página inicial","Produtos","Documentação","Carrinho5","Esvaziar carrinho","Diminuir quantidade de Jaqueta Cort","Remover Jaqueta Corta-Vento do carr","Remover cupom","Finalizar compra","Ambiente de teste técnico do proces","Leia a documentação antes de começa"]
+14) título /                    => Produtos | Verzel Store | lang: pt-BR
+14) título /carrinho            => Carrinho | Verzel Store | lang: pt-BR
+14) título /checkout            => Finalizar compra | Verzel Store | lang: pt-BR
+14) título /documentacao        => Documentação | Verzel Store | lang: pt-BR
+14) título /pedido-confirmado   => Pedido confirmado | Verzel Store | lang: pt-BR
+14) título /xpto                => Página não encontrada | Verzel Store | lang: pt-BR
+FIM

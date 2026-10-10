@@ -1,0 +1,37 @@
+### BUG-001 - subtotal exato de 200,00 cobra frete (calcular)
+$ POST /api/carrinho/calcular  {"itens":[{"produtoId":"P005","quantidade":1},{"produtoId":"P008","quantidade":2}]}
+{"itens":[{"produtoId":"P005","nome":"Mochila Urbana 20L","precoUnitario":100,"quantidade":1,"total":100},{"produtoId":"P008","nome":"Garrafa Térmica 750ml","precoUnitario":50,"quantidade":2,"total":100}],"subtotal":200,"desconto":0,"frete":19.9,"freteGratis":false,"valorFaltanteFreteGratis":0,"total":219.9,"cupom":null}
+HTTP 200
+
+### BUG-001 - mesmo cenario no pedido
+{"numero":"VZ-163955","criadoEm":"2026-10-08T02:08:57.004Z","cliente":{"nome":"Maria Silva","email":"maria@exemplo.com","cep":"01310100"},"itens":[{"produtoId":"P005","nome":"Mochila Urbana 20L","precoUnitario":100,"quantidade":1,"total":100},{"produtoId":"P008","nome":"Garrafa Térmica 750ml","precoUnitario":50,"quantidade":2,"total":100}],"subtotal":200,"desconto":0,"frete":19.9,"freteGratis":false,"valorFaltanteFreteGratis":0,"total":219.9,"cupom":null}
+HTTP 201
+
+### BUG-002 - 6 unidades aceitas (calcular)
+$ POST /api/carrinho/calcular  {"itens":[{"produtoId":"P004","quantidade":6}]}
+{"itens":[{"produtoId":"P004","nome":"Boné Aba Curva","precoUnitario":49.9,"quantidade":6,"total":299.4}],"subtotal":299.4,"desconto":0,"frete":0,"freteGratis":true,"valorFaltanteFreteGratis":0,"total":299.4,"cupom":null}
+HTTP 200
+
+### BUG-002 - 6 unidades aceitas (pedido)
+{"numero":"VZ-523638","criadoEm":"2026-10-08T02:08:57.283Z","cliente":{"nome":"Maria Silva","email":"maria@exemplo.com","cep":"01310100"},"itens":[{"produtoId":"P004","nome":"Boné Aba Curva","precoUnitario":49.9,"quantidade":6,"total":299.4}],"subtotal":299.4,"desconto":0,"frete":0,"freteGratis":true,"valorFaltanteFreteGratis":0,"total":299.4,"cupom":null}
+HTTP 201
+
+### BUG-002 - 100 unidades aceitas (pedido)
+{"numero":"VZ-998307","criadoEm":"2026-10-08T02:08:57.413Z","cliente":{"nome":"Maria Silva","email":"maria@exemplo.com","cep":"01310100"},"itens":[{"produtoId":"P004","nome":"Boné Aba Curva","precoUnitario":49.9,"quantidade":100,"total":4990}],"subtotal":4990,"desconto":0,"frete":0,"freteGratis":true,"valorFaltanteFreteGratis":0,"total":4990,"cupom":null}
+HTTP 201
+
+### BUG-004 - item sem produtoId
+$ POST /api/carrinho/calcular  {"itens":[{"quantidade":1}]}
+{"erro":{"codigo":"PRODUTO_NAO_ENCONTRADO","mensagem":"Produto undefined não encontrado.","campo":"itens[0].produtoId"}}
+HTTP 422
+
+### BUG-002 (extra) - quantidades enormes tambem sao aceitas
+$ POST /api/carrinho/calcular  {"itens":[{"produtoId":"P004","quantidade":1e21}]}
+{"itens":[{"produtoId":"P004","nome":"Boné Aba Curva","precoUnitario":49.9,"quantidade":1e+21,"total":4.9900000000000005e+22}],"subtotal":4.9900000000000005e+22,"desconto":0,"frete":0,"freteGratis":true,"valorFaltanteFreteGratis":0,"total":4.9900000000000005e
+HTTP 200
+
+### Observacao - GET /api (URL de API do PDF) devolve a pagina HTML da loja
+HTTP 200  content-type: text/html
+### Observacao - GET /api/ devolve JSON 404
+{"erro":{"codigo":"ROTA_NAO_ENCONTRADA","mensagem":"Rota não encontrada."}}
+HTTP 404

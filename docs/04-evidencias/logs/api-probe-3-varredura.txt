@@ -1,0 +1,68 @@
+DIVERGE [{"produtoId":"P005","quantidade":2}] - | frete: esperado 0 obtido 19.9 ; total: esperado 200 obtido 219.9
+DIVERGE [{"produtoId":"P008","quantidade":4}] - | frete: esperado 0 obtido 19.9 ; total: esperado 200 obtido 219.9
+DIVERGE [{"produtoId":"P005","quantidade":2}] - | frete: esperado 0 obtido 19.9 ; total: esperado 200 obtido 219.9
+DIVERGE [{"produtoId":"P005","quantidade":2}] - | frete: esperado 0 obtido 19.9 ; total: esperado 200 obtido 219.9
+DIVERGE [{"produtoId":"P008","quantidade":4}] - | frete: esperado 0 obtido 19.9 ; total: esperado 200 obtido 219.9
+A) 164 combinações, 5 divergências do oráculo (frete grátis a partir de 200,00 inclusive)
+B) diferenças calcular x pedidos: 0
+C) quantidade 10 (1e1)                            200 {"itens":[{"produtoId":"P004","nome":"Boné Aba Curva","precoUnitario":49.9,"quantidade":10,"total":499}],"subtotal":499,"desconto":0,"frete":0,"freteGratis":true,"valorFa
+C) quantidade 5.0                                 200 {"itens":[{"produtoId":"P004","nome":"Boné Aba Curva","precoUnitario":49.9,"quantidade":5,"total":249.5}],"subtotal":249.5,"desconto":0,"frete":0,"freteGratis":true,"valo
+C) quantidade 1e21                                200 {"itens":[{"produtoId":"P004","nome":"Boné Aba Curva","precoUnitario":49.9,"quantidade":1e+21,"total":4.9900000000000005e+22}],"subtotal":4.9900000000000005e+22,"desconto
+C) quantidade 9007199254740993                    200 {"itens":[{"produtoId":"P004","nome":"Boné Aba Curva","precoUnitario":49.9,"quantidade":9007199254740992,"total":449459242811575500}],"subtotal":449459242811575500,"desco
+C) quantidade true                                422 {"erro":{"codigo":"QUANTIDADE_INVALIDA","mensagem":"A quantidade deve ser um número inteiro maior ou igual a 1.","campo":"itens[0].quantidade"}}
+C) produtoId com espaço " P004"                   422 {"erro":{"codigo":"PRODUTO_NAO_ENCONTRADO","mensagem":"Produto P004 não encontrado.","campo":"itens[0].produtoId"}}
+C) produtoId numérico                             422 {"erro":{"codigo":"PRODUTO_NAO_ENCONTRADO","mensagem":"Produto 4 não encontrado.","campo":"itens[0].produtoId"}}
+C) produtoId ausente                              422 {"erro":{"codigo":"PRODUTO_NAO_ENCONTRADO","mensagem":"Produto undefined não encontrado.","campo":"itens[0].produtoId"}}
+C) item null                                      422 {"erro":{"codigo":"ITEM_INVALIDO","mensagem":"Cada item deve ser um objeto com produtoId e quantidade.","campo":"itens[0]"}}
+C) item array                                     422 {"erro":{"codigo":"ITEM_INVALIDO","mensagem":"Cada item deve ser um objeto com produtoId e quantidade.","campo":"itens[0]"}}
+C) itens objeto                                   422 {"erro":{"codigo":"ITENS_OBRIGATORIOS","mensagem":"Informe ao menos um item.","campo":"itens"}}
+C) cupom booleano true                            200 {"itens":[{"produtoId":"P005","nome":"Mochila Urbana 20L","precoUnitario":100,"quantidade":1,"total":100}],"subtotal":100,"desconto":0,"frete":19.9,"freteGratis":false,"v
+C) cupom array                                    200 {"itens":[{"produtoId":"P005","nome":"Mochila Urbana 20L","precoUnitario":100,"quantidade":1,"total":100}],"subtotal":100,"desconto":0,"frete":19.9,"freteGratis":false,"v
+C) cupom objeto                                   200 {"itens":[{"produtoId":"P005","nome":"Mochila Urbana 20L","precoUnitario":100,"quantidade":1,"total":100}],"subtotal":100,"desconto":0,"frete":19.9,"freteGratis":false,"v
+C) cupom com TAB/quebra de linha                  200 {"itens":[{"produtoId":"P005","nome":"Mochila Urbana 20L","precoUnitario":100,"quantidade":1,"total":100}],"subtotal":100,"desconto":10,"frete":19.9,"freteGratis":false,"
+C) cupom com espaço NBSP                          200 {"itens":[{"produtoId":"P005","nome":"Mochila Urbana 20L","precoUnitario":100,"quantidade":1,"total":100}],"subtotal":100,"desconto":10,"frete":19.9,"freteGratis":false,"
+C) cupom com espaço no meio                       200 {"itens":[{"produtoId":"P005","nome":"Mochila Urbana 20L","precoUnitario":100,"quantidade":1,"total":100}],"subtotal":100,"desconto":0,"frete":19.9,"freteGratis":false,"v
+C) cupom 5000 caracteres                          200 {"itens":[{"produtoId":"P005","nome":"Mochila Urbana 20L","precoUnitario":100,"quantidade":1,"total":100}],"subtotal":100,"desconto":0,"frete":19.9,"freteGratis":false,"v
+C) cupom ı (i sem ponto) maiúsc. "BEMVİNDO10"     200 {"itens":[{"produtoId":"P005","nome":"Mochila Urbana 20L","precoUnitario":100,"quantidade":1,"total":100}],"subtotal":100,"desconto":0,"frete":19.9,"freteGratis":false,"v
+C) cupom ﬃ/unicode "ＢＥＭＶＩＮＤＯ１０" (full width)      200 {"itens":[{"produtoId":"P005","nome":"Mochila Urbana 20L","precoUnitario":100,"quantidade":1,"total":100}],"subtotal":100,"desconto":0,"frete":19.9,"freteGratis":false,"v
+C) corpo vazio                                    400 {"erro":{"codigo":"JSON_INVALIDO","mensagem":"O corpo da requisição deve ser um objeto JSON válido."}}
+C) corpo "null"                                   400 {"erro":{"codigo":"JSON_INVALIDO","mensagem":"O corpo da requisição deve ser um objeto JSON válido."}}
+C) corpo número                                   400 {"erro":{"codigo":"JSON_INVALIDO","mensagem":"O corpo da requisição deve ser um objeto JSON válido."}}
+C) sem Content-Type                               200 {"itens":[{"produtoId":"P005","nome":"Mochila Urbana 20L","precoUnitario":100,"quantidade":1,"total":100}],"subtotal":100,"desconto":0,"frete":19.9,"freteGratis":false,"v
+C) Content-Type text/plain                        200 {"itens":[{"produtoId":"P005","nome":"Mochila Urbana 20L","precoUnitario":100,"quantidade":1,"total":100}],"subtotal":100,"desconto":0,"frete":19.9,"freteGratis":false,"v
+C) campos extras no corpo                         200 {"itens":[{"produtoId":"P005","nome":"Mochila Urbana 20L","precoUnitario":100,"quantidade":1,"total":100}],"subtotal":100,"desconto":0,"frete":19.9,"freteGratis":false,"v
+C) GET /api (rota raiz da API)                    200 <!doctype html> <html lang="pt-BR"> <head> <meta charset="UTF-8" /> <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> <meta name="viewport" content="width=devi
+C) GET /api/ (barra final)                        404 {"erro":{"codigo":"ROTA_NAO_ENCONTRADA","mensagem":"Rota não encontrada."}}
+C) GET /api/produtos/ (barra final)               200 [{"id":"P001","nome":"Camiseta Essencial","descricao":"Algodão penteado e corte reto.","categoria":"Vestuário","preco":59.9},{"id":"P002","nome":"Calça Jeans Slim","descr
+C) GET /api/produtos?x=1                          200 [{"id":"P001","nome":"Camiseta Essencial","descricao":"Algodão penteado e corte reto.","categoria":"Vestuário","preco":59.9},{"id":"P002","nome":"Calça Jeans Slim","descr
+C) GET /api/PRODUTOS (caixa)                      404 {"erro":{"codigo":"ROTA_NAO_ENCONTRADA","mensagem":"Rota não encontrada."}}
+C) DELETE /api/produtos/P001                      405 {"erro":{"codigo":"METODO_NAO_PERMITIDO","mensagem":"O método DELETE não é permitido nesta rota."}}
+C) POST /api/produtos                             405 {"erro":{"codigo":"METODO_NAO_PERMITIDO","mensagem":"O método POST não é permitido nesta rota."}}
+C) OPTIONS /api/pedidos                           204 
+C) HEAD /api/produtos                             405 
+C) GET /api/carrinho                              404 {"erro":{"codigo":"ROTA_NAO_ENCONTRADA","mensagem":"Rota não encontrada."}}
+C) GET /api/produtos/P001/extra                   404 {"erro":{"codigo":"ROTA_NAO_ENCONTRADA","mensagem":"Rota não encontrada."}}
+C) GET /api/produtos/%20                          404 {"erro":{"codigo":"PRODUTO_NAO_ENCONTRADO","mensagem":"Produto %20 não encontrado."}}
+C) nome com espaços nas pontas                    201 {"numero":"VZ-893479","criadoEm":"2026-10-09T18:27:20.106Z","cliente":{"nome":"Maria Silva","email":"maria@exemplo.com","cep":"01310100"},"itens":[{"produtoId":"P005","no
+C) nome com números "M4ria S1lva"                 201 {"numero":"VZ-670218","criadoEm":"2026-10-09T18:27:20.198Z","cliente":{"nome":"M4ria S1lva","email":"maria@exemplo.com","cep":"01310100"},"itens":[{"produtoId":"P005","no
+C) nome com tag HTML                              201 {"numero":"VZ-610464","criadoEm":"2026-10-09T18:27:20.232Z","cliente":{"nome":"<b>Maria</b> <i>Silva</i>","email":"maria@exemplo.com","cep":"01310100"},"itens":[{"produto
+C) nome 1000 letras                               201 {"numero":"VZ-467333","criadoEm":"2026-10-09T18:27:20.271Z","cliente":{"nome":"AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+C) nome só símbolos "!! ??"                       201 {"numero":"VZ-062665","criadoEm":"2026-10-09T18:27:20.307Z","cliente":{"nome":"!! ??","email":"maria@exemplo.com","cep":"01310100"},"itens":[{"produtoId":"P005","nome":"M
+C) nome com 2 palavras de 1 letra "A B"           422 {"erro":{"codigo":"DADOS_INVALIDOS","mensagem":"Existem campos inválidos no pedido.","campos":[{"campo":"cliente.nome","mensagem":"Informe nome e sobrenome."}]}}
+C) nome "Zé Li" (acento / 2 letras)               201 {"numero":"VZ-183061","criadoEm":"2026-10-09T18:27:20.365Z","cliente":{"nome":"Zé Li","email":"maria@exemplo.com","cep":"01310100"},"itens":[{"produtoId":"P005","nome":"M
+C) nome não é string                              422 {"erro":{"codigo":"DADOS_INVALIDOS","mensagem":"Existem campos inválidos no pedido.","campos":[{"campo":"cliente.nome","mensagem":"Informe o nome completo."}]}}
+C) email com espaço                               422 {"erro":{"codigo":"DADOS_INVALIDOS","mensagem":"Existem campos inválidos no pedido.","campos":[{"campo":"cliente.email","mensagem":"Informe um e-mail válido."}]}}
+C) email com espaços nas pontas                   201 {"numero":"VZ-075067","criadoEm":"2026-10-09T18:27:20.471Z","cliente":{"nome":"Maria Silva","email":"maria@exemplo.com","cep":"01310100"},"itens":[{"produtoId":"P005","no
+C) email "a@b.c"                                  201 {"numero":"VZ-087013","criadoEm":"2026-10-09T18:27:20.508Z","cliente":{"nome":"Maria Silva","email":"a@b.c","cep":"01310100"},"itens":[{"produtoId":"P005","nome":"Mochila
+C) email 300 caracteres                           201 {"numero":"VZ-561148","criadoEm":"2026-10-09T18:27:20.532Z","cliente":{"nome":"Maria Silva","email":"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+C) email duplo arroba                             422 {"erro":{"codigo":"DADOS_INVALIDOS","mensagem":"Existem campos inválidos no pedido.","campos":[{"campo":"cliente.email","mensagem":"Informe um e-mail válido."}]}}
+C) cep com espaço "01310 100"                     422 {"erro":{"codigo":"DADOS_INVALIDOS","mensagem":"Existem campos inválidos no pedido.","campos":[{"campo":"cliente.cep","mensagem":"Informe um CEP com 8 dígitos."}]}}
+C) cep com espaços nas pontas                     201 {"numero":"VZ-900479","criadoEm":"2026-10-09T18:27:20.644Z","cliente":{"nome":"Maria Silva","email":"maria@exemplo.com","cep":"01310100"},"itens":[{"produtoId":"P005","no
+C) cep numérico 1310100 (number)                  422 {"erro":{"codigo":"DADOS_INVALIDOS","mensagem":"Existem campos inválidos no pedido.","campos":[{"campo":"cliente.cep","mensagem":"Informe o CEP."}]}}
+C) cep 00000-000                                  201 {"numero":"VZ-582543","criadoEm":"2026-10-09T18:27:20.700Z","cliente":{"nome":"Maria Silva","email":"maria@exemplo.com","cep":"00000000"},"itens":[{"produtoId":"P005","no
+C) cliente null                                   422 {"erro":{"codigo":"DADOS_INVALIDOS","mensagem":"Existem campos inválidos no pedido.","campos":[{"campo":"cliente.nome","mensagem":"Informe o nome completo."},{"campo":"cl
+C) cliente array                                  422 {"erro":{"codigo":"DADOS_INVALIDOS","mensagem":"Existem campos inválidos no pedido.","campos":[{"campo":"cliente.nome","mensagem":"Informe o nome completo."},{"campo":"cl
+C) pedido sem itens e sem cliente                 422 {"erro":{"codigo":"DADOS_INVALIDOS","mensagem":"Existem campos inválidos no pedido.","campos":[{"campo":"cliente.nome","mensagem":"Informe o nome completo."},{"campo":"cl
+C) pedido com cliente inválido E itens vazios     422 {"erro":{"codigo":"DADOS_INVALIDOS","mensagem":"Existem campos inválidos no pedido.","campos":[{"campo":"cliente.nome","mensagem":"Informe o nome completo."},{"campo":"cl
+C) pedido com cliente inválido E cupom inválido   422 {"erro":{"codigo":"DADOS_INVALIDOS","mensagem":"Existem campos inválidos no pedido.","campos":[{"campo":"cliente.nome","mensagem":"Informe o nome completo."},{"campo":"cl
+C) pedido com qtd 0 E cliente inválido            422 {"erro":{"codigo":"DADOS_INVALIDOS","mensagem":"Existem campos inválidos no pedido.","campos":[{"campo":"cliente.nome","mensagem":"Informe o nome completo."},{"campo":"cl

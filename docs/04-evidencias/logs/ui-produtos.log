@@ -1,0 +1,21 @@
+cards na vitrine: 8 | produtos na API: 8 | na documentação: 8
+P001 Camiseta Essencial | R$ 59,90 | Vestuário | ok
+P002 Calça Jeans Slim | R$ 139,90 | Vestuário | ok
+P003 Tênis Casual Urbano | R$ 189,90 | Calçados | ok
+P004 Boné Aba Curva | R$ 49,90 | Acessórios | ok
+P005 Mochila Urbana 20L | R$ 100,00 | Acessórios | ok
+P006 Kit 3 Pares de Meias | R$ 29,90 | Vestuário | ok
+P007 Jaqueta Corta-Vento | R$ 229,90 | Vestuário | ok
+P008 Garrafa Térmica 750ml | R$ 50,00 | Acessórios | ok
+produtos com divergência: 0
+contador após 1 de cada: 8
+carrinho: Camiseta Essencial | R$ 59,90 cada | R$ 59,90 | ok
+carrinho: Calça Jeans Slim | R$ 139,90 cada | R$ 139,90 | ok
+carrinho: Tênis Casual Urbano | R$ 189,90 cada | R$ 189,90 | ok
+carrinho: Boné Aba Curva | R$ 49,90 cada | R$ 49,90 | ok
+carrinho: Mochila Urbana 20L | R$ 100,00 cada | R$ 100,00 | ok
+carrinho: Kit 3 Pares de Meias | R$ 29,90 cada | R$ 29,90 | ok
+carrinho: Jaqueta Corta-Vento | R$ 229,90 cada | R$ 229,90 | ok
+carrinho: Garrafa Térmica 750ml | R$ 50,00 cada | R$ 50,00 | ok
+soma esperada: R$ 849,40 | subtotal exibido: R$ 849,40
+API de produtos com erro 500 -> vitrine mostra: Não foi possível carregar os produtos. Recarregue a página para tentar de novo.

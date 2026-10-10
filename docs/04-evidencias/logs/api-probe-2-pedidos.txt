@@ -1,0 +1,70 @@
+## calc P007 cupom (frete antes do cupom) -> 200
+{"itens":[..],"subtotal":229.9,"desconto":22.99,"frete":0,"freteGratis":true,"valorFaltanteFreteGratis":0,"total":206.91,"cupom":{"codigo":"BEMVINDO10","aplicado":true,"mensagem":"Cupom aplicado: 10% de desconto nos produtos."}}
+## calc 200.01? P005+P008+P006x? (100+50+50=200) -> 422
+{"erro":{"codigo":"ITEM_DUPLICADO","mensagem":"O produto P008 aparece mais de uma vez.","campo":"itens[2].produtoId"}}
+## calc 200.00 outra comb: P004x4 + ... -> 200
+{"itens":[..],"subtotal":199.8,"desconto":0,"frete":19.9,"freteGratis":false,"valorFaltanteFreteGratis":0.2,"total":219.7,"cupom":null}
+## calc 210: P005x1+P003? 289.9 -> 200
+{"itens":[..],"subtotal":219.8,"desconto":0,"frete":0,"freteGratis":true,"valorFaltanteFreteGratis":0,"total":219.8,"cupom":null}
+## calc 200.50?: P006x5 +P008 = 199.5 -> 200
+{"itens":[..],"subtotal":199.5,"desconto":0,"frete":19.9,"freteGratis":false,"valorFaltanteFreteGratis":0.5,"total":219.4,"cupom":null}
+## calc 200.10?: P001x1+P002x1+...  -> 200
+{"itens":[..],"subtotal":199.9,"desconto":0,"frete":19.9,"freteGratis":false,"valorFaltanteFreteGratis":0.1,"total":219.8,"cupom":null}
+## calc 200.1:P006x1+P001x?  -> 200
+{"itens":[..],"subtotal":239.8,"desconto":0,"frete":0,"freteGratis":true,"valorFaltanteFreteGratis":0,"total":239.8,"cupom":null}
+## calc 200.30 -> 200
+{"itens":[..],"subtotal":209.9,"desconto":0,"frete":0,"freteGratis":true,"valorFaltanteFreteGratis":0,"total":209.9,"cupom":null}
+## ped ok -> 201
+{"numero":"VZ-988688","criadoEm":"2026-10-08T02:07:29.331Z","cliente":{"nome":"Maria Silva","email":"maria@exemplo.com","cep":"01310100"},"itens":[..],"subtotal":100,"desconto":0,"frete":19.9,"freteGratis":false,"valorFaltanteFreteGratis":100,"total":119.9,"cupom":null}
+## ped ok cupom -> 201
+{"numero":"VZ-725210","criadoEm":"2026-10-08T02:07:29.379Z","cliente":{"nome":"Maria Silva","email":"maria@exemplo.com","cep":"01310100"},"itens":[..],"subtotal":100,"desconto":10,"frete":19.9,"freteGratis":false,"valorFaltanteFreteGratis":100,"total":109.9,"cupom":{"codigo":"BEMVINDO10","aplicado":true,"mensagem":"Cupom aplicado: 10% de desconto nos produtos."}}
+## ped exatos 200 sem cupom -> 201
+{"numero":"VZ-522929","criadoEm":"2026-10-08T02:07:29.443Z","cliente":{"nome":"Maria Silva","email":"maria@exemplo.com","cep":"01310100"},"itens":[..],"subtotal":200,"desconto":0,"frete":19.9,"freteGratis":false,"valorFaltanteFreteGratis":0,"total":219.9,"cupom":null}
+## ped qtd 6 -> 201
+{"numero":"VZ-732446","criadoEm":"2026-10-08T02:07:29.480Z","cliente":{"nome":"Maria Silva","email":"maria@exemplo.com","cep":"01310100"},"itens":[..],"subtotal":299.4,"desconto":0,"frete":0,"freteGratis":true,"valorFaltanteFreteGratis":0,"total":299.4,"cupom":null}
+## ped qtd 5 -> 201
+{"numero":"VZ-984494","criadoEm":"2026-10-08T02:07:29.509Z","cliente":{"nome":"Maria Silva","email":"maria@exemplo.com","cep":"01310100"},"itens":[..],"subtotal":249.5,"desconto":0,"frete":0,"freteGratis":true,"valorFaltanteFreteGratis":0,"total":249.5,"cupom":null}
+## ped qtd 100 -> 201
+{"numero":"VZ-499688","criadoEm":"2026-10-08T02:07:29.558Z","cliente":{"nome":"Maria Silva","email":"maria@exemplo.com","cep":"01310100"},"itens":[..],"subtotal":4990,"desconto":0,"frete":0,"freteGratis":true,"valorFaltanteFreteGratis":0,"total":4990,"cupom":null}
+## ped cupom invalido -> 422
+{"erro":{"codigo":"CUPOM_INVALIDO","mensagem":"Cupom inválido.","campo":"cupom"}}
+## ped cupom expirado -> 422
+{"erro":{"codigo":"CUPOM_EXPIRADO","mensagem":"Cupom expirado.","campo":"cupom"}}
+## ped cupom minusc -> 201
+{"numero":"VZ-766010","criadoEm":"2026-10-08T02:07:29.683Z","cliente":{"nome":"Maria Silva","email":"maria@exemplo.com","cep":"01310100"},"itens":[..],"subtotal":100,"desconto":10,"frete":19.9,"freteGratis":false,"valorFaltanteFreteGratis":100,"total":109.9,"cupom":{"codigo":"BEMVINDO10","aplicado":true,"mensagem":"Cupom aplicado: 10% de desconto nos produtos."}}
+## ped sem cliente -> 422
+{"erro":{"codigo":"DADOS_INVALIDOS","mensagem":"Existem campos inválidos no pedido.","campos":[{"campo":"cliente.nome","mensagem":"Informe o nome completo."},{"campo":"cliente.email","mensagem":"Informe o e-mail."},{"campo":"cliente.cep","mensagem":"Informe o CEP."}]}}
+## ped nome 1 palavra -> 422
+{"erro":{"codigo":"DADOS_INVALIDOS","mensagem":"Existem campos inválidos no pedido.","campos":[{"campo":"cliente.nome","mensagem":"Informe nome e sobrenome."}]}}
+## ped nome vazio -> 422
+{"erro":{"codigo":"DADOS_INVALIDOS","mensagem":"Existem campos inválidos no pedido.","campos":[{"campo":"cliente.nome","mensagem":"Informe o nome completo."}]}}
+## ped nome espacos -> 422
+{"erro":{"codigo":"DADOS_INVALIDOS","mensagem":"Existem campos inválidos no pedido.","campos":[{"campo":"cliente.nome","mensagem":"Informe o nome completo."}]}}
+## ped email invalido -> 422
+{"erro":{"codigo":"DADOS_INVALIDOS","mensagem":"Existem campos inválidos no pedido.","campos":[{"campo":"cliente.email","mensagem":"Informe um e-mail válido."}]}}
+## ped email sem ponto -> 422
+{"erro":{"codigo":"DADOS_INVALIDOS","mensagem":"Existem campos inválidos no pedido.","campos":[{"campo":"cliente.email","mensagem":"Informe um e-mail válido."}]}}
+## ped cep 7 dig -> 422
+{"erro":{"codigo":"DADOS_INVALIDOS","mensagem":"Existem campos inválidos no pedido.","campos":[{"campo":"cliente.cep","mensagem":"Informe um CEP com 8 dígitos."}]}}
+## ped cep 8 sem hifen -> 201
+{"numero":"VZ-158242","criadoEm":"2026-10-08T02:07:30.016Z","cliente":{"nome":"Maria Silva","email":"maria@exemplo.com","cep":"01310100"},"itens":[..],"subtotal":100,"desconto":0,"frete":19.9,"freteGratis":false,"valorFaltanteFreteGratis":100,"total":119.9,"cupom":null}
+## ped cep 9 dig -> 422
+{"erro":{"codigo":"DADOS_INVALIDOS","mensagem":"Existem campos inválidos no pedido.","campos":[{"campo":"cliente.cep","mensagem":"Informe um CEP com 8 dígitos."}]}}
+## ped cep letras -> 422
+{"erro":{"codigo":"DADOS_INVALIDOS","mensagem":"Existem campos inválidos no pedido.","campos":[{"campo":"cliente.cep","mensagem":"Informe um CEP com 8 dígitos."}]}}
+## ped cep hifen errado -> 422
+{"erro":{"codigo":"DADOS_INVALIDOS","mensagem":"Existem campos inválidos no pedido.","campos":[{"campo":"cliente.cep","mensagem":"Informe um CEP com 8 dígitos."}]}}
+## ped tudo invalido -> 422
+{"erro":{"codigo":"DADOS_INVALIDOS","mensagem":"Existem campos inválidos no pedido.","campos":[{"campo":"cliente.nome","mensagem":"Informe o nome completo."},{"campo":"cliente.email","mensagem":"Informe um e-mail válido."},{"campo":"cliente.cep","mensagem":"Informe um CEP com 8 dígitos."}]}}
+## ped itens vazio -> 422
+{"erro":{"codigo":"ITENS_OBRIGATORIOS","mensagem":"Informe ao menos um item.","campo":"itens"}}
+## ped dup -> 422
+{"erro":{"codigo":"ITEM_DUPLICADO","mensagem":"O produto P004 aparece mais de uma vez.","campo":"itens[1].produtoId"}}
+## GET pedidos -> 405
+{"erro":{"codigo":"METODO_NAO_PERMITIDO","mensagem":"O método GET não é permitido nesta rota."}}
+## produtos id minusc -> 404
+{"erro":{"codigo":"PRODUTO_NAO_ENCONTRADO","mensagem":"Produto p001 não encontrado."}}
+## calc sem content-type json invalido -> 400
+{"erro":{"codigo":"JSON_INVALIDO","mensagem":"O corpo da requisição deve ser um objeto JSON válido."}}
+## ped preco desconto 10% arred -> 201
+{"numero":"VZ-596851","criadoEm":"2026-10-08T02:07:30.382Z","cliente":{"nome":"Maria Silva","email":"maria@exemplo.com","cep":"01310100"},"itens":[..],"subtotal":29.9,"desconto":2.99,"frete":19.9,"freteGratis":false,"valorFaltanteFreteGratis":170.1,"total":46.81,"cupom":{"codigo":"BEMVINDO10","aplicado":true,"mensagem":"Cupom aplicado: 10% de desconto nos produtos."}}

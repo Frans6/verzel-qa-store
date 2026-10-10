@@ -1,0 +1,207 @@
+
+Running 52 tests using 1 worker
+
+  ok  1 [api] › tests\api\cupom.spec.ts:8:7 › CT-001/002/003: cupom "BEMVINDO10" aplica 10% (151ms)
+  ok  2 [api] › tests\api\cupom.spec.ts:8:7 › CT-001/002/003: cupom "bemvindo10" aplica 10% (113ms)
+  ok  3 [api] › tests\api\cupom.spec.ts:8:7 › CT-001/002/003: cupom "BemVindo10" aplica 10% (103ms)
+  ok  4 [api] › tests\api\cupom.spec.ts:8:7 › CT-001/002/003: cupom "  BEMVINDO10  " aplica 10% (96ms)
+  ok  5 [api] › tests\api\cupom.spec.ts:17:5 › CT-004: cupom inexistente retorna 200, sem desconto e "Cupom inválido." (292ms)
+  ok  6 [api] › tests\api\cupom.spec.ts:26:5 › CT-005: cupom expirado retorna 200, sem desconto e "Cupom expirado." (102ms)
+  ok  7 [api] › tests\api\cupom.spec.ts:35:5 › CT-011: pedido com cupom inexistente retorna 422 CUPOM_INVALIDO (102ms)
+  ok  8 [api] › tests\api\cupom.spec.ts:41:5 › CT-012: pedido com cupom expirado retorna 422 CUPOM_EXPIRADO (92ms)
+  ok  9 [api] › tests\api\cupom.spec.ts:49:7 › CT-027: valores em 2 casas decimais (P001 com cupom) (89ms)
+  ok 10 [api] › tests\api\cupom.spec.ts:49:7 › CT-027: valores em 2 casas decimais (P006 com cupom) (104ms)
+  ok 11 [api] › tests\api\cupom.spec.ts:49:7 › CT-027: valores em 2 casas decimais (P004 com cupom) (127ms)
+  ok 12 [api] › tests\api\frete.spec.ts:14:7 › CT-013: subtotal 100,00 cobra frete e informa o que falta (101ms)
+  ok 13 [api] › tests\api\frete.spec.ts:14:7 › CT-014: subtotal 199,80 cobra frete (92ms)
+  ok 14 [api] › tests\api\frete.spec.ts:14:7 › CT-015: subtotal 199,90 cobra frete (105ms)
+  x  15 [api] › tests\api\frete.spec.ts:14:7 › CT-016 @bug-001: subtotal EXATO 200,00 tem frete grátis (inclusive) (204ms)
+  ok 16 [api] › tests\api\frete.spec.ts:14:7 › CT-017: subtotal 209,90 tem frete grátis (131ms)
+  ok 17 [api] › tests\api\frete.spec.ts:24:5 › CT-018: frete grátis considera o subtotal ANTES do cupom (CA08) (94ms)
+  ok 18 [api] › tests\api\frete.spec.ts:34:5 › CT-009: desconto do cupom não incide sobre o frete (CA09) (92ms)
+  ok 19 [api] › tests\api\limite-e-pedidos.spec.ts:7:5 › CT-023a: calcular aceita 5 unidades de um produto (98ms)
+  x  20 [api] › tests\api\limite-e-pedidos.spec.ts:11:5 › CT-023b @bug-002: calcular rejeita 6 unidades com 422 QUANTIDADE_MAXIMA_EXCEDIDA (132ms)
+  x  21 [api] › tests\api\limite-e-pedidos.spec.ts:17:5 › CT-024 @bug-002: pedido com 6 unidades é rejeitado com 422 QUANTIDADE_MAXIMA_EXCEDIDA (181ms)
+  ok 22 [api] › tests\api\limite-e-pedidos.spec.ts:24:7 › CT-025: quantidade inválida (0) retorna 422 QUANTIDADE_INVALIDA (145ms)
+  ok 23 [api] › tests\api\limite-e-pedidos.spec.ts:24:7 › CT-025: quantidade inválida (-1) retorna 422 QUANTIDADE_INVALIDA (115ms)
+  ok 24 [api] › tests\api\limite-e-pedidos.spec.ts:24:7 › CT-025: quantidade inválida (1.5) retorna 422 QUANTIDADE_INVALIDA (115ms)
+  ok 25 [api] › tests\api\limite-e-pedidos.spec.ts:24:7 › CT-025: quantidade inválida ("2") retorna 422 QUANTIDADE_INVALIDA (98ms)
+  ok 26 [api] › tests\api\limite-e-pedidos.spec.ts:24:7 › CT-025: quantidade inválida (null) retorna 422 QUANTIDADE_INVALIDA (94ms)
+  x  27 [api] › tests\api\limite-e-pedidos.spec.ts:31:5 › CT-048 @bug-004: item sem produtoId retorna 422 ITEM_INVALIDO (e não "Produto undefined") (156ms)
+  ok 28 [api] › tests\api\limite-e-pedidos.spec.ts:39:5 › CT-026: produto duplicado retorna 422 ITEM_DUPLICADO (140ms)
+  ok 29 [api] › tests\api\limite-e-pedidos.spec.ts:46:5 › CT-030: pedido válido retorna 201 com número VZ-000000 e CEP normalizado (108ms)
+  ok 30 [api] › tests\api\limite-e-pedidos.spec.ts:55:5 › CT-031: pedido com dados do cliente inválidos retorna 422 DADOS_INVALIDOS com detalhes em "campos" (641ms)
+  ok 31 [api] › tests\api\limite-e-pedidos.spec.ts:63:5 › CT-032: rotas e métodos inexistentes retornam 404/405 no formato padrão (154ms)
+  ok 32 [api] › tests\api\limite-e-pedidos.spec.ts:72:5 › CT-033: JSON inválido retorna 400 JSON_INVALIDO (105ms)
+  ok 33 [api] › tests\api\limite-e-pedidos.spec.ts:78:5 › CT-034: consulta de produto existente e inexistente (133ms)
+  ok 34 [ui] › tests\ui\carrinho.spec.ts:4:5 › CT-001 (UI): BEMVINDO10 aplica 10% sobre o subtotal (1.1s)
+  ok 35 [ui] › tests\ui\carrinho.spec.ts:15:5 › CT-002/003 (UI): cupom em minúsculas e com espaços é aceito (1.0s)
+  ok 36 [ui] › tests\ui\carrinho.spec.ts:22:5 › CT-004 (UI): cupom inexistente mostra "Cupom inválido." e não dá desconto (1.1s)
+  ok 37 [ui] › tests\ui\carrinho.spec.ts:30:5 › CT-005 (UI): cupom expirado mostra "Cupom expirado." e não dá desconto (993ms)
+  ok 38 [ui] › tests\ui\carrinho.spec.ts:38:5 › CT-007/008 (UI): só um cupom por vez; para trocar é preciso remover o atual (1.1s)
+  ok 39 [ui] › tests\ui\carrinho.spec.ts:48:5 › CT-019 (UI): abaixo de R$ 200,00 cobra frete e informa quanto falta (1.2s)
+  x  40 [ui] › tests\ui\carrinho.spec.ts:58:5 › CT-016 (UI) @bug-001: subtotal EXATO de R$ 200,00 tem frete grátis (6.2s)
+  ok 41 [ui] › tests\ui\carrinho.spec.ts:68:5 › CT-018 (UI): frete grátis considera o subtotal antes do cupom (1.5s)
+  ok 42 [ui] › tests\ui\limite-e-checkout.spec.ts:4:5 › CT-021 (UI): vitrine bloqueia a 6ª unidade e mostra o aviso de limite (893ms)
+  ok 43 [ui] › tests\ui\limite-e-checkout.spec.ts:12:5 › CT-022 (UI): carrinho desabilita "+" no limite de 5 unidades (1.2s)
+  ok 44 [ui] › tests\ui\limite-e-checkout.spec.ts:24:5 › CT-035 (UI): checkout valida campos obrigatórios (919ms)
+  ok 45 [ui] › tests\ui\limite-e-checkout.spec.ts:32:5 › CT-036 (UI): checkout rejeita nome sem sobrenome, e-mail e CEP inválidos (1.2s)
+  ok 46 [ui] › tests\ui\limite-e-checkout.spec.ts:43:5 › CT-037 (UI): pedido válido é confirmado e mostra o número no formato VZ-000000 (1.0s)
+  ok 47 [ui] › tests\ui\limite-e-checkout.spec.ts:53:5 › CT-049 (UI): resumo do checkout e da confirmação são iguais, com cupom (1.5s)
+  ok 48 [ui] › tests\ui\limite-e-checkout.spec.ts:71:5 › CT-051 (UI): recarregar a página (F5) mantém carrinho e cupom (1.3s)
+  ok 49 [ui] › tests\ui\limite-e-checkout.spec.ts:82:5 › CT-038 (UI): checkout com carrinho vazio redireciona para o carrinho (503ms)
+  ok 50 [ui] › tests\ui\produtos.spec.ts:8:5 › CT-044 (UI): vitrine exibe os 8 produtos iguais aos da API (955ms)
+  ok 51 [ui] › tests\ui\produtos.spec.ts:22:5 › CT-045/046 (UI): 1 de cada produto — preços no carrinho, contador e subtotal (1.6s)
+  ok 52 [ui] › tests\ui\produtos.spec.ts:39:5 › CT-047 (UI): falha na API de produtos mostra mensagem de erro (574ms)
+
+
+  1) [api] › tests\api\frete.spec.ts:14:7 › CT-016 @bug-001: subtotal EXATO 200,00 tem frete grátis (inclusive) 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 0
+    Received: 19.9
+
+      16 |     expect(r.status()).toBe(200);
+      17 |     const corpo = await r.json();
+    > 18 |     expect(corpo.frete).toBe(c.frete);
+         |                         ^
+      19 |     expect(corpo.freteGratis).toBe(c.frete === 0);
+      20 |     expect(corpo.valorFaltanteFreteGratis).toBeCloseTo(c.falta, 2);
+      21 |   });
+        at C:\Dev\verzel-qa-store\tests\api\frete.spec.ts:18:25
+
+    Error Context: test-results\frete-CT-016-bug-001-subto-ee765-tem-frete-grátis-inclusive--api\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\frete-CT-016-bug-001-subto-ee765-tem-frete-grátis-inclusive--api\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\frete-CT-016-bug-001-subto-ee765-tem-frete-grátis-inclusive--api\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  2) [api] › tests\api\limite-e-pedidos.spec.ts:11:5 › CT-023b @bug-002: calcular rejeita 6 unidades com 422 QUANTIDADE_MAXIMA_EXCEDIDA 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 422
+    Received: 200
+
+      11 | test('CT-023b @bug-002: calcular rejeita 6 unidades com 422 QUANTIDADE_MAXIMA_EXCEDIDA', async ({ request }) => {
+      12 |   const r = await calcular(request, BONE(6));
+    > 13 |   expect(r.status()).toBe(422);
+         |                      ^
+      14 |   expect((await r.json()).erro.codigo).toBe('QUANTIDADE_MAXIMA_EXCEDIDA');
+      15 | });
+      16 |
+        at C:\Dev\verzel-qa-store\tests\api\limite-e-pedidos.spec.ts:13:22
+
+    Error Context: test-results\limite-e-pedidos-CT-023b-b-57aed--QUANTIDADE-MAXIMA-EXCEDIDA-api\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\limite-e-pedidos-CT-023b-b-57aed--QUANTIDADE-MAXIMA-EXCEDIDA-api\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\limite-e-pedidos-CT-023b-b-57aed--QUANTIDADE-MAXIMA-EXCEDIDA-api\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  3) [api] › tests\api\limite-e-pedidos.spec.ts:17:5 › CT-024 @bug-002: pedido com 6 unidades é rejeitado com 422 QUANTIDADE_MAXIMA_EXCEDIDA 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 422
+    Received: 201
+
+      17 | test('CT-024 @bug-002: pedido com 6 unidades é rejeitado com 422 QUANTIDADE_MAXIMA_EXCEDIDA', async ({ request }) => {
+      18 |   const r = await criarPedido(request, BONE(6));
+    > 19 |   expect(r.status()).toBe(422);
+         |                      ^
+      20 |   expect((await r.json()).erro.codigo).toBe('QUANTIDADE_MAXIMA_EXCEDIDA');
+      21 | });
+      22 |
+        at C:\Dev\verzel-qa-store\tests\api\limite-e-pedidos.spec.ts:19:22
+
+    Error Context: test-results\limite-e-pedidos-CT-024-bu-8853f--QUANTIDADE-MAXIMA-EXCEDIDA-api\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\limite-e-pedidos-CT-024-bu-8853f--QUANTIDADE-MAXIMA-EXCEDIDA-api\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\limite-e-pedidos-CT-024-bu-8853f--QUANTIDADE-MAXIMA-EXCEDIDA-api\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  4) [api] › tests\api\limite-e-pedidos.spec.ts:31:5 › CT-048 @bug-004: item sem produtoId retorna 422 ITEM_INVALIDO (e não "Produto undefined") 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: "ITEM_INVALIDO"
+    Received: "PRODUTO_NAO_ENCONTRADO"
+
+      33 |   expect(r.status()).toBe(422);
+      34 |   const e = (await r.json()).erro;
+    > 35 |   expect(e.codigo).toBe('ITEM_INVALIDO');
+         |                    ^
+      36 |   expect(e.mensagem).not.toContain('undefined');
+      37 | });
+      38 |
+        at C:\Dev\verzel-qa-store\tests\api\limite-e-pedidos.spec.ts:35:20
+
+    Error Context: test-results\limite-e-pedidos-CT-048-bu-fc004-DO-e-não-Produto-undefined--api\error-context.md
+
+    attachment #2: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\limite-e-pedidos-CT-048-bu-fc004-DO-e-não-Produto-undefined--api\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\limite-e-pedidos-CT-048-bu-fc004-DO-e-não-Produto-undefined--api\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5) [ui] › tests\ui\carrinho.spec.ts:58:5 › CT-016 (UI) @bug-001: subtotal EXATO de R$ 200,00 tem frete grátis 
+
+    Error: expect(locator).toHaveText(expected) failed
+
+    Locator:  locator('[data-valor="frete"]')
+    Expected: "Grátis"
+    Received: "R$ 19,90"
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveText" locator('[data-valor="frete"]') with timeout 5000ms
+      - waiting for locator('[data-valor="frete"]')
+        14 × locator resolved to <dd data-valor="frete">R$ 19,90</dd>
+           - unexpected value "R$ 19,90"
+
+
+      62 |   const r = resumo(page);
+      63 |   await expect(r.subtotal).toHaveText('R$ 200,00');
+    > 64 |   await expect(r.frete).toHaveText('Grátis');
+         |                         ^
+      65 |   await expect(r.total).toHaveText('R$ 200,00');
+      66 | });
+      67 |
+        at C:\Dev\verzel-qa-store\tests\ui\carrinho.spec.ts:64:25
+
+    attachment #1: screenshot (image/png) ──────────────────────────────────────────────────────────
+    test-results\carrinho-CT-016-UI-bug-001-28bb4-e-R-200-00-tem-frete-grátis-ui\test-failed-1.png
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+    Error Context: test-results\carrinho-CT-016-UI-bug-001-28bb4-e-R-200-00-tem-frete-grátis-ui\error-context.md
+
+    attachment #3: trace (application/zip) ─────────────────────────────────────────────────────────
+    test-results\carrinho-CT-016-UI-bug-001-28bb4-e-R-200-00-tem-frete-grátis-ui\trace.zip
+    Usage:
+
+        npx playwright show-trace test-results\carrinho-CT-016-UI-bug-001-28bb4-e-R-200-00-tem-frete-grátis-ui\trace.zip
+
+    ────────────────────────────────────────────────────────────────────────────────────────────────
+
+  5 failed
+    [api] › tests\api\frete.spec.ts:14:7 › CT-016 @bug-001: subtotal EXATO 200,00 tem frete grátis (inclusive) 
+    [api] › tests\api\limite-e-pedidos.spec.ts:11:5 › CT-023b @bug-002: calcular rejeita 6 unidades com 422 QUANTIDADE_MAXIMA_EXCEDIDA 
+    [api] › tests\api\limite-e-pedidos.spec.ts:17:5 › CT-024 @bug-002: pedido com 6 unidades é rejeitado com 422 QUANTIDADE_MAXIMA_EXCEDIDA 
+    [api] › tests\api\limite-e-pedidos.spec.ts:31:5 › CT-048 @bug-004: item sem produtoId retorna 422 ITEM_INVALIDO (e não "Produto undefined") 
+    [ui] › tests\ui\carrinho.spec.ts:58:5 › CT-016 (UI) @bug-001: subtotal EXATO de R$ 200,00 tem frete grátis 
+  47 passed (35.8s)

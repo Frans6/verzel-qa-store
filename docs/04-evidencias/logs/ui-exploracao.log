@@ -1,0 +1,105 @@
+vazio: Seu carrinho está vazio
+limite vitrine: Limite de 5 unidades atingido. | contador: 5
+limite carrinho: Limite de 5 unidades por produto. | + disabled: true {
+  sub: 'R$ 249,50',
+  desc: 'R$ 0,00',
+  frete: 'Grátis',
+  total: 'R$ 249,50',
+  aviso: null
+}
+BORDA 200: {
+  sub: 'R$ 200,00',
+  desc: 'R$ 0,00',
+  frete: 'R$ 19,90',
+  total: 'R$ 219,90',
+  aviso: 'Faltam R$ 0,00 para o frete grátis.'
+}
+cupom msg: null
+BORDA 200 + cupom: {
+  sub: 'R$ 200,00',
+  desc: '- R$ 20,00',
+  frete: 'R$ 19,90',
+  total: 'R$ 199,90',
+  aviso: 'Faltam R$ 0,00 para o frete grátis.'
+}
+199.80: {
+  sub: 'R$ 199,80',
+  desc: 'R$ 0,00',
+  frete: 'R$ 19,90',
+  total: 'R$ 219,70',
+  aviso: 'Faltam R$ 0,20 para o frete grátis.'
+}
+P007 sem cupom {
+  sub: 'R$ 229,90',
+  desc: 'R$ 0,00',
+  frete: 'Grátis',
+  total: 'R$ 229,90',
+  aviso: null
+}
+cupom: null
+P007 com cupom: {
+  sub: 'R$ 229,90',
+  desc: '- R$ 22,99',
+  frete: 'Grátis',
+  total: 'R$ 206,91',
+  aviso: null
+}
+cupom em branco: Informe um cupom.
+inexistente: Cupom inválido.
+expirado: Cupom expirado.
+{
+  sub: 'R$ 100,00',
+  desc: 'R$ 0,00',
+  frete: 'R$ 19,90',
+  total: 'R$ 119,90',
+  aviso: 'Faltam R$ 100,00 para o frete grátis.'
+}
+valido: null
+campo cupom visível após aplicar: 0
+após remover: {
+  sub: 'R$ 100,00',
+  desc: 'R$ 0,00',
+  frete: 'R$ 19,90',
+  total: 'R$ 119,90',
+  aviso: 'Faltam R$ 100,00 para o frete grátis.'
+}
+expirado após remover: Cupom expirado.
+cupom + qtd 2: {
+  sub: 'R$ 200,00',
+  desc: '- R$ 20,00',
+  frete: 'R$ 19,90',
+  total: 'R$ 199,90',
+  aviso: 'Faltam R$ 0,00 para o frete grátis.'
+}
+cupom + qtd 1: {
+  sub: 'R$ 100,00',
+  desc: '- R$ 10,00',
+  frete: 'R$ 19,90',
+  total: 'R$ 109,90',
+  aviso: 'Faltam R$ 100,00 para o frete grátis.'
+}
+carrinho vazio h1: Seu carrinho está vazio
+cupom residual após esvaziar por Remover: Cupom BEMVINDO10 aplicado.Remover cupom {
+  sub: 'R$ 29,90',
+  desc: '- R$ 2,99',
+  frete: 'R$ 19,90',
+  total: 'R$ 46,81',
+  aviso: 'Faltam R$ 170,10 para o frete grátis.'
+}
+após Esvaziar carrinho: sem cupom aplicado
+checkout vazio erros: [ 'Informe o nome completo.', 'Informe o e-mail.', 'Informe o CEP.' ]
+checkout ["Maria","a@b.com","01310100"] -> /checkout [ 'Informe nome e sobrenome.' ]
+checkout ["Maria S","a@b.com","01310100"] -> /checkout [ 'Informe nome e sobrenome.' ]
+checkout ["Maria Silva","a@b","01310100"] -> /checkout [ 'Informe um e-mail válido.' ]
+checkout ["Maria Silva","a@b.com","0131010"] -> /checkout [ 'Informe um CEP com 8 dígitos.' ]
+checkout ["Maria Silva","a@b.com","01310-100"] -> /pedido-confirmado []
+confirmado: Pedido VZ-992061 {
+  sub: 'R$ 200,00',
+  desc: 'R$ 0,00',
+  frete: 'R$ 19,90',
+  total: 'R$ 219,90',
+  aviso: null
+}
+checkout carrinho vazio -> /checkout
+rota inexistente h1: Página não encontrada
+pedido-confirmado direto: Pedido VZ-992061

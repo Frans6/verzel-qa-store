@@ -1,0 +1,28 @@
+# Observações (não reportadas como bug)
+
+Comportamentos estranhos ou fracos que **não violam um critério** da documentação, ou que dependem de decisão de produto. Ficam registrados porque podem ser úteis ao time. Quem avalia pode discordar da classificação.
+
+| # | Observação | Onde | Como ver | Por que não é bug |
+|---|-----------|------|----------|-------------------|
+| O1 | `GET /api` (o link "API" do enunciado) devolve a **página HTML da loja** com status 200, enquanto `GET /api/` e `GET /api/xpto` devolvem JSON 404. | API | `curl -i https://verzel-store.qa-test-verzel-store.workers.dev/api` | A documentação só descreve os endpoints abaixo de `/api/...`. É uma inconsistência de roteamento de baixo impacto. |
+| O2 | Quantidades gigantes são aceitas (`1e21`, `9007199254740993`) e o subtotal sai com notação científica e perda de precisão (`4.99e+22`). | API | Ver `bugs-api-requisicoes.txt` | É o mesmo defeito do **BUG-002** (sem limite de 5); está anexado ali como evidência. |
+| O3 | Nome do cliente aceita qualquer texto com 2 "palavras" de 2+ caracteres, inclusive `!! ??`, `M4ria S1lva` e tags HTML (`<b>Maria</b> <i>Silva</i>`), e sem limite de tamanho (1000 letras). O e-mail de 300 caracteres também passa. O CEP `00000-000` passa. | API | `api-probe-3-varredura.txt`, seção "nome ..." e "email ..." | A documentação só exige "nome e sobrenome", e-mail em formato válido e CEP com 8 dígitos. A interface escapa o HTML na confirmação (React), então não vi efeito visível. |
+| O4 | `HEAD /api/produtos` responde 405, embora `GET` seja permitido. | API | `curl -I .../api/produtos` | A documentação não menciona `HEAD`. |
+| O5 | Se o `sessionStorage` tiver um cupom expirado (ex.: `VERAO2026`), a interface mostra "Cupom VERAO2026 aplicado." mesmo com desconto R$ 0,00, pois o texto vem do estado local e não da resposta da API. | UI | Console: `sessionStorage.setItem('verzel-store:cupom', '"VERAO2026"')` e recarregar o carrinho | Só ocorre editando o armazenamento da aba ou se um cupom expirasse entre duas visitas; fora do fluxo normal. |
+| O6 | Se o `sessionStorage` tiver 9 unidades de um produto, a interface mostra 9 (com o aviso de limite) e calcula normalmente; a UI confia no que está salvo. | UI | `sessionStorage.setItem('verzel-store:itens', '[{"produtoId":"P004","quantidade":9}]')` | Consequência do **BUG-002**: com a API validando, o problema desaparece. |
+| O7 | Depois de errar um cupom e alterar a quantidade, a mensagem "Cupom expirado." / "Cupom inválido." continua visível. | UI | Digitar `XYZ`, aplicar, clicar em "+" | A documentação não define quando a mensagem some. |
+| O8 | Depois de aplicar um cupom válido, a mensagem da API ("Cupom aplicado: 10% de desconto nos produtos.") não aparece; a UI mostra só "Cupom BEMVINDO10 aplicado.". | UI | Aplicar `BEMVINDO10` | Os CAs só exigem as mensagens de erro. |
+| O10 | Quando `POST /api/carrinho/calcular` falha (rede ou erro 500), a interface mostra o alerta ("Não foi possível calcular o carrinho…") mas **mantém o resumo antigo** (ex.: total R$ 550,00 com a mochila já em 4 unidades, linha R$ 500,00) e o botão "Finalizar compra" continua disponível. | UI | Console da loja: trocar `window.fetch` por uma versão que rejeita `/carrinho/calcular` e clicar em "-" | Só ocorre com falha de rede/servidor, fora dos critérios; a confirmação do pedido é recalculada pela API. |
+| O11 | No carrinho a hierarquia de títulos pula de `h1` ("Carrinho") para `h3` (nome dos produtos) antes do `h2` ("Resumo do pedido"). | UI | F12 > Elements, ou leitor de tela | Acessibilidade (WCAG 1.3.1); sem impacto nos valores. |
+| O9 | Cupom com tabulação, quebra de linha ou espaço não separável nas pontas é aceito (`\tBEMVINDO10\n`). | API | `api-probe-3-varredura.txt` | A documentação diz "espaços"; aceitar outros brancos é razoável. |
+
+## Verificado e sem problemas (para constar da cobertura)
+- 164 combinações de produtos e quantidades (1–5), com e sem cupom, comparadas a um cálculo independente: **a única divergência é o frete em R$ 200,00 exatos (BUG-001)**. Sem erro de arredondamento.
+- `/api/carrinho/calcular` e `/api/pedidos` retornam os mesmos valores para a mesma entrada (15 combinações).
+- Resumo do checkout igual ao da confirmação (inclusive com cupom e valores com milhar: R$ 1.034,55).
+- Duplo clique em "Confirmar pedido" gera 1 só pedido; Enter no campo de cupom aplica; F5 mantém carrinho e cupom; botão Voltar após confirmar leva ao carrinho vazio.
+- Sem excesso horizontal em 320, 375, 768 e 1920 px nas telas principais; sem texto cortado; ordem de Tab coerente; títulos e `lang="pt-BR"` corretos.
+- **Console do Chrome:** nenhum erro, aviso ou log durante todo o fluxo (vitrine, carrinho, cupons válido/inválido/expirado, limite de 5, checkout com erros, 404).
+- **Rede:** só `GET /api/produtos` e `POST /api/carrinho/calcular` (todos 200); arquivos estáticos 200/304; nenhuma requisição falha.
+- **Tratamento de falhas simulado:** `/pedidos` com 502 (HTML) ou falha de rede mostra "Não foi possível confirmar o pedido. Tente novamente." e o botão volta a ficar ativo; `/pedidos` 422 mostra o erro no campo certo; `/calcular` com erro 500 mostra a mensagem do servidor.
+- Acessibilidade básica: 1 `h1` por página, sem IDs duplicados, todos os campos com rótulo, botões e links com nome acessível, `header`/`nav`/`main`/`footer` presentes, âncoras da documentação funcionando, sem `tabindex` positivo. Alvos de toque ≥ 24 px (exceto o link do aviso do topo, 17 px de altura, no desktop).

@@ -1,0 +1,9 @@
+node_modules/
+test-results/
+playwright-report/
+blob-report/
+.env
+
+# Guia pessoal (não publicar)
+_GUIA-PESSOAL.md
+_ROTEIRO-VERIFICACAO.md
